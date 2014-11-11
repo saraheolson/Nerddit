@@ -2,7 +2,9 @@
 <resources>
 
     <string name="app_name">Nerddit</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="title_activity_nerddit">NerdditActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="fragment_topic_list_title">Hot Topics</string>
 
 </resources>

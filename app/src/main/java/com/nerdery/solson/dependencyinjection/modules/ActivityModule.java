@@ -4,9 +4,11 @@ package com.nerdery.solson.dependencyinjection.modules;
  * @author areitz
  */
 
+import com.nerdery.solson.activity.NerdditActivity;
 import com.nerdery.solson.dependencyinjection.annotations.ForActivity;
 import com.nerdery.solson.activity.BaseActivity;
-import com.nerdery.solson.activity.MainActivity;
+import com.nerdery.solson.fragment.TopicDetailFragment;
+import com.nerdery.solson.fragment.TopicListFragment;
 
 import android.content.Context;
 
@@ -22,8 +24,12 @@ import dagger.Provides;
  */
 @Module(
         injects = {
-                MainActivity.class
-                // TODO: Add what this injects here!
+                NerdditActivity.class,
+                TopicDetailFragment.class,
+                TopicListFragment.class,
+        },
+        includes = {
+                EndpointModule.class
         },
         addsTo = AndroidModule.class,
         library = true

@@ -1,6 +1,9 @@
 package com.nerdery.solson.fragment;
 
-import android.app.Fragment;
+
+import android.support.v4.app.Fragment;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 

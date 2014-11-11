@@ -3,19 +3,20 @@ package com.nerdery.solson.activity;
 import com.nerdery.solson.NerdditApplication;
 import com.nerdery.solson.dependencyinjection.modules.ActivityModule;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import java.util.Arrays;
 import java.util.List;
 
+import butterknife.ButterKnife;
 import dagger.ObjectGraph;
 
 /**
  * @author Andrew
  */
 
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends FragmentActivity {
 
     private ObjectGraph mActivityGraph;
 
