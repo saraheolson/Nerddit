@@ -1,7 +1,7 @@
 package com.nerdery.solson.dependencyinjection.modules;
 
 import com.nerdery.solson.Constants;
-import com.nerdery.solson.data.HotTopicsEndpoint;
+import com.nerdery.solson.api.HotTopicsEndpoint;
 
 import javax.inject.Singleton;
 

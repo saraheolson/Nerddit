@@ -1,5 +1,8 @@
 package com.nerdery.solson.activity;
 
+import com.nerdery.solson.R;
+import com.nerdery.solson.fragment.EmptyListFragment;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -8,37 +11,34 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.nerdery.solson.R;
-import com.nerdery.solson.fragment.EmptyListFragment;
-
 import butterknife.InjectView;
 
-public class NerdditActivity extends BaseActivity {
+public class TopicListActivity extends BaseActivity {
 
-//    private EmptyListFragment mEmptyListFragment;
-//
-//    @InjectView(R.id.frame_topic_detail)
-//    FrameLayout mDetailFrame;
+    private EmptyListFragment mEmptyListFragment;
+
+    @InjectView(R.id.frame_topic_detail)
+    FrameLayout mDetailFrame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nerddit);
+        setContentView(R.layout.activity_topic_list);
 
         super.setTitle("Nerddit Hot Topics");
-//
-//        mEmptyListFragment = EmptyListFragment.newInstance();
-//        swapDetailView(mEmptyListFragment);
+
+        mEmptyListFragment = EmptyListFragment.newInstance();
+        swapDetailView(mEmptyListFragment);
     }
 
-//    private void swapDetailView(Fragment fragment) {
-//        FragmentTransaction t = getSupportFragmentManager().beginTransaction();
-//        Log.d(this.getClass().getName(), "In swap detail view");
-//        //Log.d(this.getClass().getName(), "Detail frame ID: " + mDetailFrame.getId());
-//        t.replace(R.id.frame_topic_detail, fragment);
-//        Log.d(this.getClass().getName(), "After replace");
-//        t.commit();
-//    }
+    private void swapDetailView(Fragment fragment) {
+        FragmentTransaction t = getSupportFragmentManager().beginTransaction();
+        Log.d(this.getClass().getName(), "In swap detail view");
+        //Log.d(this.getClass().getName(), "Detail frame ID: " + mDetailFrame.getId());
+        t.replace(R.id.frame_topic_detail, fragment);
+        Log.d(this.getClass().getName(), "After replace");
+        t.commit();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

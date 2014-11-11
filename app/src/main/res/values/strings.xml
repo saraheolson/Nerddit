@@ -7,4 +7,11 @@
     <string name="action_settings">Settings</string>
     <string name="fragment_topic_list_title">Hot Topics</string>
 
+    <!--No Connection Dialog-->
+    <string name="no_connection_dialog_title">No Connection Detected</string>
+    <string name="no_connection_dialog_message">We have detected that you have no connection to the internet. Please make sure you have a reliable connection, and then try again.</string>
+    <string name="alert_dialog_ok">OK</string>
+
+    <string name="progress_dialog_message">Loading items...</string>
+
 </resources>

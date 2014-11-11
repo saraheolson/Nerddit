@@ -18,20 +18,17 @@ public class Topic implements Serializable {
     @DatabaseField
     private String title;
 
-    @DatabaseField
-    private int score;
-
-    @DatabaseField
-    private Date postedOn;
-
-    @DatabaseField
-    private String author;
-
-    @DatabaseField
-    private List comments;
-
-    @DatabaseField
-    private String imageUrl;
+//    @DatabaseField
+//    private int score;
+//
+//    @DatabaseField
+//    private Date postedOn;
+//
+//    @DatabaseField
+//    private String author;
+//
+//    @DatabaseField
+//    private String imageUrl;
 
     public long getId() {
         return id;
@@ -49,43 +46,35 @@ public class Topic implements Serializable {
         this.title = title;
     }
 
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public Date getPostedOn() {
-        return postedOn;
-    }
-
-    public void setPostedOn(Date postedOn) {
-        this.postedOn = postedOn;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public List getComments() {
-        return comments;
-    }
-
-    public void setComments(List comments) {
-        this.comments = comments;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
+//    public int getScore() {
+//        return score;
+//    }
+//
+//    public void setScore(int score) {
+//        this.score = score;
+//    }
+//
+//    public Date getPostedOn() {
+//        return postedOn;
+//    }
+//
+//    public void setPostedOn(Date postedOn) {
+//        this.postedOn = postedOn;
+//    }
+//
+//    public String getAuthor() {
+//        return author;
+//    }
+//
+//    public void setAuthor(String author) {
+//        this.author = author;
+//    }
+//
+//    public String getImageUrl() {
+//        return imageUrl;
+//    }
+//
+//    public void setImageUrl(String imageUrl) {
+//        this.imageUrl = imageUrl;
+//    }
 }

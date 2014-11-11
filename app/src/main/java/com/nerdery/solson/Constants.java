@@ -14,5 +14,5 @@ public final class Constants {
         throw new AssertionError();
     }
 
-    public static final String ENDPOINT_URL = "http://reddit.com/api/";
+    public static final String ENDPOINT_URL = "http://reddit.com/";
 }

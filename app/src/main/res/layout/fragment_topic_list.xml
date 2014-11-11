@@ -4,9 +4,9 @@
     android:layout_height="match_parent"
     tools:context="com.nerdery.solson.fragment.TopicListFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/fragment_topic_list_title" />
+   <ListView
+           android:id="@+id/topic_list_list_view"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"/>
 
 </FrameLayout>

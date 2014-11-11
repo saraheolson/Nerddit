@@ -14,6 +14,10 @@ public class TopicRepository extends ObjectRepository {
 
     private Dao<Topic, Long> topicDao;
 
+    public TopicRepository(Dao<Topic, Long> productDao) {
+        this.topicDao = productDao;
+    }
+
     public Topic find(Long topicId) {
         Topic topic = new Topic();
         try {

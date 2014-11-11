@@ -4,12 +4,16 @@ package com.nerdery.solson.dependencyinjection.modules;
  * @author areitz
  */
 
-import com.nerdery.solson.activity.NerdditActivity;
+import com.nerdery.solson.R;
+import com.nerdery.solson.TopicsAdapter;
+import com.nerdery.solson.activity.TopicListActivity;
 import com.nerdery.solson.dependencyinjection.annotations.ForActivity;
 import com.nerdery.solson.activity.BaseActivity;
+import com.nerdery.solson.fragment.EmptyListFragment;
 import com.nerdery.solson.fragment.TopicDetailFragment;
 import com.nerdery.solson.fragment.TopicListFragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 
 import javax.inject.Singleton;
@@ -24,12 +28,15 @@ import dagger.Provides;
  */
 @Module(
         injects = {
-                NerdditActivity.class,
+                TopicListActivity.class,
                 TopicDetailFragment.class,
                 TopicListFragment.class,
+                EmptyListFragment.class,
+                TopicsAdapter.class,
         },
         includes = {
-                EndpointModule.class
+                EndpointModule.class,
+                RepositoryModule.class,
         },
         addsTo = AndroidModule.class,
         library = true
@@ -54,5 +61,11 @@ public class ActivityModule {
         return activity;
     }
 
-
+    @Provides
+    @Singleton
+    ProgressDialog provideProgressDialog(@ForActivity Context context) {
+        ProgressDialog pd = new ProgressDialog(context);
+        pd.setMessage(context.getResources().getString(R.string.progress_dialog_message));
+        return pd;
+    }
 }

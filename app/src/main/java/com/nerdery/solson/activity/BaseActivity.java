@@ -1,13 +1,21 @@
 package com.nerdery.solson.activity;
 
 import com.nerdery.solson.NerdditApplication;
+import com.nerdery.solson.TopicsAdapter;
 import com.nerdery.solson.dependencyinjection.modules.ActivityModule;
+import com.nerdery.solson.fragment.dialog.NoConnectionDialogFragment;
 
+import android.app.Activity;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 import java.util.Arrays;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import dagger.ObjectGraph;
@@ -18,7 +26,14 @@ import dagger.ObjectGraph;
 
 public abstract class BaseActivity extends FragmentActivity {
 
+    private NoConnectionDialogFragment mNoConnectionDialog;
+    private Activity mActivity;
+
+    @Inject
+    TopicsAdapter mTopicsAdapter;
+
     private ObjectGraph mActivityGraph;
+    private boolean finishActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +65,43 @@ public abstract class BaseActivity extends FragmentActivity {
         );
     }
 
-
     /**
      * Inject the supplied {@code object} using the activity-specific graph.
      */
     public void inject(Object object) {
-        mActivityGraph.inject(object);
+        if (mActivityGraph != null) {
+            mActivityGraph.inject(object);
+        }
+    }
+
+    /**
+     * Shows a dialog notifying the user that they lack an internet connection. The Dialog will be
+     * created if it has not been shown before.
+     */
+    protected void showDialog() {
+        if (mNoConnectionDialog == null) {
+            mNoConnectionDialog = new NoConnectionDialogFragment();
+        }
+        if (!mNoConnectionDialog.isVisible()) {
+            mNoConnectionDialog.show(getSupportFragmentManager(), "no-connection");
+        }
+    }
+
+    /**
+     * Checks to see if user has a working internet connection.
+     *
+     * @return
+     *          True if user is connected.
+     */
+    protected boolean isConnected() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+
+        return networkInfo != null && networkInfo.isConnectedOrConnecting();
+    }
+
+    protected void setFinishActivity(boolean finishActivity) {
+        this.finishActivity = finishActivity;
     }
 }

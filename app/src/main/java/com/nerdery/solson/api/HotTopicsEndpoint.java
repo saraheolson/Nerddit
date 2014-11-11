@@ -1,5 +1,10 @@
 package com.nerdery.solson.api;
 
+import com.nerdery.solson.model.Topic;
+
+import java.util.ArrayList;
+
+import retrofit.Callback;
 import retrofit.http.GET;
 
 /**
@@ -7,6 +12,6 @@ import retrofit.http.GET;
  */
 public interface HotTopicsEndpoint {
 
-    @GET("/hot")
-    public void fetchHotTopics();
+    @GET("/r/hot.json")
+    public void fetchHotTopics( Callback<TopicHolder> callback );
 }
