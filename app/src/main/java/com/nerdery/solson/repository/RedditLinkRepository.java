@@ -1,9 +1,7 @@
 package com.nerdery.solson.repository;
 
 import com.j256.ormlite.dao.Dao;
-import com.nerdery.solson.api.reddit.model.RedditLink;
-
-import org.joda.time.DateTime;
+import com.nerdery.solson.model.RedditLink;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

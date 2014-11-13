@@ -1,4 +1,4 @@
-package com.nerdery.solson.api.reddit.model;
+package com.nerdery.solson.model;
 
 import com.google.gson.JsonElement;
 

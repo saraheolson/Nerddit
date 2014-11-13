@@ -2,8 +2,8 @@ package com.nerdery.solson.adapter;
 
 import com.nerdery.solson.R;
 import com.nerdery.solson.activity.BaseActivity;
-import com.nerdery.solson.api.LinksViewHolder;
-import com.nerdery.solson.api.reddit.model.RedditLink;
+import com.nerdery.solson.view.LinksViewHolder;
+import com.nerdery.solson.model.RedditLink;
 import com.nerdery.solson.dependencyinjection.annotations.ForActivity;
 import com.nerdery.solson.repository.RedditLinkRepository;
 import com.squareup.picasso.Picasso;

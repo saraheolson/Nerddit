@@ -1,8 +1,8 @@
 package com.nerdery.solson.fragment;
 
 import com.nerdery.solson.R;
-import com.nerdery.solson.api.LinksViewHolder;
-import com.nerdery.solson.api.reddit.model.RedditLink;
+import com.nerdery.solson.view.LinksViewHolder;
+import com.nerdery.solson.model.RedditLink;
 import com.squareup.picasso.Picasso;
 
 import android.os.Bundle;

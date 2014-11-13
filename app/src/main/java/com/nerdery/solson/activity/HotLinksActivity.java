@@ -1,7 +1,7 @@
 package com.nerdery.solson.activity;
 
 import com.nerdery.solson.R;
-import com.nerdery.solson.api.reddit.model.RedditLink;
+import com.nerdery.solson.model.RedditLink;
 import com.nerdery.solson.fragment.EmptyListFragment;
 import com.nerdery.solson.fragment.LinkDetailFragment;
 import com.nerdery.solson.fragment.LinkListFragment;
@@ -36,9 +36,12 @@ public class HotLinksActivity extends BaseActivity implements MasterDetailContro
         super.setTitle("Nerddit Hot Topics");
 
         if (mDetailFrame != null) {
+            Log.d("HotLinksActivity", "Is tablet");
             mIsTablet = true;
             mEmptyListFragment = EmptyListFragment.newInstance();
             swapDetailView(mEmptyListFragment);
+        } else {
+            Log.d("HotLinksActivity", "Is not tablet");
         }
     }
 

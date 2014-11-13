@@ -1,4 +1,4 @@
-package com.nerdery.solson.api.reddit.model;
+package com.nerdery.solson.model;
 
 public class RedditResponse<T> {
   RedditResponse(T data) {

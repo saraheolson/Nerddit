@@ -5,10 +5,10 @@ import com.nerdery.solson.activity.BaseActivity;
 import com.nerdery.solson.activity.MasterDetailController;
 import com.nerdery.solson.adapter.RedditLinkAdapter;
 import com.nerdery.solson.api.HotLinksEndpoint;
-import com.nerdery.solson.api.reddit.model.RedditLink;
-import com.nerdery.solson.api.reddit.model.RedditListing;
-import com.nerdery.solson.api.reddit.model.RedditObject;
-import com.nerdery.solson.api.reddit.model.RedditResponse;
+import com.nerdery.solson.model.RedditLink;
+import com.nerdery.solson.model.RedditListing;
+import com.nerdery.solson.model.RedditObject;
+import com.nerdery.solson.model.RedditResponse;
 import com.nerdery.solson.repository.RedditLinkRepository;
 
 import org.joda.time.DateTime;

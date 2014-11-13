@@ -1,4 +1,4 @@
-package com.nerdery.solson.api;
+package com.nerdery.solson.view;
 
 import android.view.View;
 

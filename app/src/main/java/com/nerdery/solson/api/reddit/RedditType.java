@@ -1,9 +1,9 @@
 package com.nerdery.solson.api.reddit;
 
-import com.nerdery.solson.api.reddit.model.RedditComment;
-import com.nerdery.solson.api.reddit.model.RedditLink;
-import com.nerdery.solson.api.reddit.model.RedditListing;
-import com.nerdery.solson.api.reddit.model.RedditMore;
+import com.nerdery.solson.model.RedditComment;
+import com.nerdery.solson.model.RedditLink;
+import com.nerdery.solson.model.RedditListing;
+import com.nerdery.solson.model.RedditMore;
 
 public enum RedditType {
   t1(RedditComment.class),

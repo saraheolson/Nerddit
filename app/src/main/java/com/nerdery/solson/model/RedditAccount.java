@@ -1,4 +1,4 @@
-package com.nerdery.solson.api.reddit.model;
+package com.nerdery.solson.model;
 
 public class RedditAccount extends RedditObject {
   int comment_karma;

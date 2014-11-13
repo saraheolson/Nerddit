@@ -6,8 +6,8 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
-import com.nerdery.solson.api.reddit.model.RedditObject;
-import com.nerdery.solson.api.reddit.model.RedditObjectWrapper;
+import com.nerdery.solson.model.RedditObject;
+import com.nerdery.solson.model.RedditObjectWrapper;
 
 import android.util.Log;
 

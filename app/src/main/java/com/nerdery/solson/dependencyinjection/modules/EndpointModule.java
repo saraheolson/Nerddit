@@ -7,7 +7,7 @@ import com.nerdery.solson.Constants;
 import com.nerdery.solson.api.HotLinksEndpoint;
 import com.nerdery.solson.api.reddit.DateTimeDeserializer;
 import com.nerdery.solson.api.reddit.RedditObjectDeserializer;
-import com.nerdery.solson.api.reddit.model.RedditObject;
+import com.nerdery.solson.model.RedditObject;
 
 import org.joda.time.DateTime;
 

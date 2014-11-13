@@ -1,8 +1,6 @@
-package com.nerdery.solson.api.reddit.model;
+package com.nerdery.solson.model;
 
 import com.j256.ormlite.field.DatabaseField;
-
-import org.joda.time.DateTime;
 
 import java.io.Serializable;
 

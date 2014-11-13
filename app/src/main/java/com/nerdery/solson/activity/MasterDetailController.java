@@ -1,6 +1,6 @@
 package com.nerdery.solson.activity;
 
-import com.nerdery.solson.api.reddit.model.RedditLink;
+import com.nerdery.solson.model.RedditLink;
 
 /**
  * @author solson

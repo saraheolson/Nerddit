@@ -1,11 +1,9 @@
-package com.nerdery.solson.api;
+package com.nerdery.solson.view;
 
 import com.nerdery.solson.R;
-import com.nerdery.solson.api.reddit.model.RedditListing;
-import com.squareup.picasso.Picasso;
+import com.nerdery.solson.model.RedditListing;
 
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;

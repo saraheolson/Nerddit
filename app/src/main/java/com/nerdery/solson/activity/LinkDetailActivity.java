@@ -1,7 +1,7 @@
 package com.nerdery.solson.activity;
 
 import com.nerdery.solson.R;
-import com.nerdery.solson.api.reddit.model.RedditLink;
+import com.nerdery.solson.model.RedditLink;
 import com.nerdery.solson.fragment.LinkDetailFragment;
 
 import android.os.Bundle;
