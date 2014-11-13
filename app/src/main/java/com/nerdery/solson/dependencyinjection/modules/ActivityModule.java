@@ -5,13 +5,14 @@ package com.nerdery.solson.dependencyinjection.modules;
  */
 
 import com.nerdery.solson.R;
-import com.nerdery.solson.TopicsAdapter;
-import com.nerdery.solson.activity.TopicListActivity;
+import com.nerdery.solson.activity.LinkDetailActivity;
+import com.nerdery.solson.adapter.RedditLinkAdapter;
+import com.nerdery.solson.activity.HotLinksActivity;
 import com.nerdery.solson.dependencyinjection.annotations.ForActivity;
 import com.nerdery.solson.activity.BaseActivity;
 import com.nerdery.solson.fragment.EmptyListFragment;
-import com.nerdery.solson.fragment.TopicDetailFragment;
-import com.nerdery.solson.fragment.TopicListFragment;
+import com.nerdery.solson.fragment.LinkDetailFragment;
+import com.nerdery.solson.fragment.LinkListFragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -28,11 +29,12 @@ import dagger.Provides;
  */
 @Module(
         injects = {
-                TopicListActivity.class,
-                TopicDetailFragment.class,
-                TopicListFragment.class,
+                HotLinksActivity.class,
+                LinkDetailFragment.class,
+                LinkListFragment.class,
                 EmptyListFragment.class,
-                TopicsAdapter.class,
+                RedditLinkAdapter.class,
+                LinkDetailActivity.class,
         },
         includes = {
                 EndpointModule.class,

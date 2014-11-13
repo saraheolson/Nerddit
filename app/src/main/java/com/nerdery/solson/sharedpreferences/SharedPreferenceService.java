@@ -13,6 +13,10 @@ public interface SharedPreferenceService {
 
     public int getInt(String key, int defaultVal);
 
+    public void saveLong(String key, long value);
+
+    public long getLong(String key, long defaultVal);
+
     public void saveFloat(String key, float value);
 
     public float getFloat(String key, float defaultVal);

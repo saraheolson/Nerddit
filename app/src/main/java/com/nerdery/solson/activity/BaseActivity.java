@@ -1,7 +1,7 @@
 package com.nerdery.solson.activity;
 
 import com.nerdery.solson.NerdditApplication;
-import com.nerdery.solson.TopicsAdapter;
+import com.nerdery.solson.adapter.RedditLinkAdapter;
 import com.nerdery.solson.dependencyinjection.modules.ActivityModule;
 import com.nerdery.solson.fragment.dialog.NoConnectionDialogFragment;
 
@@ -17,7 +17,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.ButterKnife;
 import dagger.ObjectGraph;
 
 /**
@@ -28,10 +27,6 @@ public abstract class BaseActivity extends FragmentActivity {
 
     private NoConnectionDialogFragment mNoConnectionDialog;
     private Activity mActivity;
-
-    @Inject
-    TopicsAdapter mTopicsAdapter;
-
     private ObjectGraph mActivityGraph;
     private boolean finishActivity;
 

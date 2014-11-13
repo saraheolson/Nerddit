@@ -4,10 +4,11 @@ import com.j256.ormlite.android.AndroidConnectionSource;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
+import com.nerdery.solson.api.reddit.model.RedditLink;
+import com.nerdery.solson.api.reddit.model.RedditSubmission;
 import com.nerdery.solson.data.DatabaseHelper;
 import com.nerdery.solson.dependencyinjection.annotations.ForApplication;
-import com.nerdery.solson.model.Topic;
-import com.nerdery.solson.repository.TopicRepository;
+import com.nerdery.solson.repository.RedditLinkRepository;
 
 import android.content.Context;
 
@@ -34,11 +35,11 @@ public class RepositoryModule {
 
     @Provides
     @Singleton
-    TopicRepository providesProductRepository(DatabaseHelper databaseHelper) {
+    RedditLinkRepository providesLinkRepository(DatabaseHelper databaseHelper) {
         ConnectionSource connectionSource = new AndroidConnectionSource(databaseHelper);
         try {
-            Dao<Topic, Long> topicDao = DaoManager.createDao(connectionSource, Topic.class);
-            return new TopicRepository(topicDao);
+            Dao<RedditLink, Long> linkDao = DaoManager.createDao(connectionSource, RedditLink.class);
+            return new RedditLinkRepository(linkDao);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

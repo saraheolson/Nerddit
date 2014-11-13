@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.nerdery.solson.model.Topic;
+import com.nerdery.solson.api.reddit.model.RedditLink;
 
 import java.sql.SQLException;
 
@@ -25,7 +25,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
-            TableUtils.createTable(connectionSource, Topic.class);
+            TableUtils.createTable(connectionSource, RedditLink.class);
         } catch (SQLException se) {
             throw new RuntimeException(se);
         }
@@ -34,7 +34,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
-            TableUtils.dropTable(connectionSource, Topic.class, true);
+            TableUtils.dropTable(connectionSource, RedditLink.class, true);
             onCreate(db, connectionSource);
         } catch (SQLException se) {
             throw new RuntimeException(se);

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Add Custom Styles Here -->
+
+    <!--<style name="ActionBarTabStyle.Nerddit" parent="@android:style/Widget.Holo.ActionBar.TabView">-->
+        <!--<item name="android:background">@drawable/tab_indicator_ab_daycoblue</item>-->
+    <!--</style>-->
+
 </resources>

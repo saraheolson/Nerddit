@@ -3,4 +3,15 @@
     <style name="Theme.Nerddit" parent="@android:style/Theme.Holo.Light">
         <!-- Add custom styles here -->
     </style>
+
+    <!--<style name="Theme.NerrditRed" parent="@android:style/Theme.Holo">-->
+        <!--<item name="android:actionBarItemBackground">@drawable/selectable_background_daycoblue</item>-->
+        <!--<item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Daycoblue</item>-->
+        <!--<item name="android:actionDropDownStyle">@style/DropDownNav.Daycoblue</item>-->
+        <!--<item name="android:actionBarStyle">@style/ActionBar.Solid.Daycoblue</item>-->
+        <!--<item name="android:actionModeBackground">@drawable/cab_background_top_daycoblue</item>-->
+        <!--<item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_daycoblue</item>-->
+        <!--<item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Daycoblue</item>-->
+    <!--</style>-->
+
 </resources>

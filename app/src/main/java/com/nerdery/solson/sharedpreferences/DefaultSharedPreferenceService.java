@@ -71,6 +71,31 @@ public class DefaultSharedPreferenceService implements SharedPreferenceService {
      * @return value stored with key if found, defaultVal otherwise
      */
     @Override
+    public long getLong(String key, long defaultVal) {
+        return mSharedPreferences.getLong(key, defaultVal);
+    }
+
+    /**
+     * Saves int user data in shared preferences.
+     *
+     * @param key   value to save and get on
+     * @param value value to store
+     */
+    @Override
+    public void saveLong(String key, long value) {
+        SharedPreferences.Editor prefs = mSharedPreferences.edit();
+        prefs.putLong(key, value);
+        prefs.commit();
+    }
+
+    /**
+     * gets int value from stored preferences
+     *
+     * @param key        key to look value up on
+     * @param defaultVal value returned if no value is found
+     * @return value stored with key if found, defaultVal otherwise
+     */
+    @Override
     public int getInt(String key, int defaultVal) {
         return mSharedPreferences.getInt(key, defaultVal);
     }
