@@ -11,10 +11,10 @@ import retrofit.http.GET;
  */
 public interface HotLinksEndpoint {
 
-    @GET("/r/hot.json")
+    @GET("/hot.json")
     public void getHot(
             Callback<RedditResponse<RedditListing>> callback);
 
-    @GET("/r/hot.json")
+    @GET("/hot.json")
     public RedditResponse<RedditListing> getHot();
 }

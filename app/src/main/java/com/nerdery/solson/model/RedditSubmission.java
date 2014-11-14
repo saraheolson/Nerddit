@@ -1,9 +1,11 @@
 package com.nerdery.solson.model;
 
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 import org.joda.time.DateTime;
 
+@DatabaseTable(tableName="RedditLink")
 public class RedditSubmission extends RedditObject {
 
     String banned_by;

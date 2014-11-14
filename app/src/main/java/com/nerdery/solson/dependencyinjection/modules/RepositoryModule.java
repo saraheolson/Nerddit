@@ -4,9 +4,9 @@ import com.j256.ormlite.android.AndroidConnectionSource;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
-import com.nerdery.solson.model.RedditLink;
 import com.nerdery.solson.data.DatabaseHelper;
 import com.nerdery.solson.dependencyinjection.annotations.ForApplication;
+import com.nerdery.solson.model.RedditLink;
 import com.nerdery.solson.repository.RedditLinkRepository;
 
 import android.content.Context;

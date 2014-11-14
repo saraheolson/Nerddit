@@ -93,7 +93,9 @@ public class RedditLinkAdapter extends BaseAdapter {
          *
          * TO DEBUG IMG LOCATION: Picasso.with(mContext).setIndicatorsEnabled(true);
          */
-        Picasso.with(mContext).load(link.getThumbnail()).into(linksViewHolder.getImageView());
+        if ((link.getThumbnail() != null) && !link.getThumbnail().isEmpty()) {
+            Picasso.with(mContext).load(link.getThumbnail()).into(linksViewHolder.getImageView());
+        }
 
         return convertView;
     }

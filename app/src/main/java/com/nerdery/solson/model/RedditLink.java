@@ -1,13 +1,17 @@
 package com.nerdery.solson.model;
 
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+import org.joda.time.DateTime;
 
 import java.io.Serializable;
 
+@DatabaseTable(tableName="RedditLink")
 public class RedditLink extends RedditSubmission implements Serializable {
 
-//    @DatabaseField
-//    private DateTime downloaded;
+    @DatabaseField
+    private DateTime downloaded;
 
     private String domain;
 
@@ -31,6 +35,7 @@ public class RedditLink extends RedditSubmission implements Serializable {
 
     private boolean stickied;
 
+    @DatabaseField
     private String url;
 
     @DatabaseField
@@ -101,11 +106,11 @@ public class RedditLink extends RedditSubmission implements Serializable {
         return visited;
     }
 
-//    public DateTime getDownloaded() {
-//        return downloaded;
-//    }
-//
-//    public void setDownloaded(DateTime downloaded) {
-//        this.downloaded = downloaded;
-//    }
+    public DateTime getDownloaded() {
+        return downloaded;
+    }
+
+    public void setDownloaded(DateTime downloaded) {
+        this.downloaded = downloaded;
+    }
 }

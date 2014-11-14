@@ -12,6 +12,7 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.Optional;
 
 /**
  * Created by solson on 11/11/14.
@@ -32,6 +33,10 @@ public class LinksViewHolder implements ViewHolder {
 
     @InjectView(R.id.list_item_link_image)
     ImageView mImageView;
+
+    @Optional
+    @InjectView(R.id.list_item_link_url)
+    TextView mUrlView;
 
     private View parentView;
     private List<RedditListing> mRedditListings;
@@ -89,4 +94,13 @@ public class LinksViewHolder implements ViewHolder {
     public void setImage(Drawable image) {
         this.mImageView.setImageDrawable(image);
     }
+
+    public TextView getUrlView() {
+        return mUrlView;
+    }
+
+    public void setUrlView(String url) {
+        this.mUrlView.setText(url);
+    }
+
 }
