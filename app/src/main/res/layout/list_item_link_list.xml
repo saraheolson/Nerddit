@@ -1,33 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:id="@+id/layout_topic_list"
-              android:orientation="vertical"
+              android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:padding="5dp">
 
-    <ImageView
-            android:id="@+id/list_item_link_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
-    <TextView
-            android:id="@+id/list_item_link_title"
+    <LinearLayout
+            android:id="@+id/list_item_layout_left"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent">
 
-    <TextView
-            android:id="@+id/list_item_link_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <ImageView
+                android:id="@+id/list_item_link_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_cell_item_padding"/>
 
-    <TextView
-            android:id="@+id/list_item_link_posted_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/list_item_link_score"
+                style="@style/LinkScore"/>
 
-    <TextView
-            android:id="@+id/list_item_link_comments"
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/list_item_layout_right"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/list_item_layout_left">
+
+        <TextView
+                android:id="@+id/list_item_link_title"
+                style="@style/LinkTitle"/>
+
+        <TextView
+                android:id="@+id/list_item_link_posted_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_cell_item_padding"/>
+
+        <TextView
+                android:id="@+id/list_item_link_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_cell_item_padding"/>
+
+    </LinearLayout>
 
 </LinearLayout>

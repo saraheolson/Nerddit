@@ -10,6 +10,8 @@ public class LinkDetailActivity extends BaseActivity {
 
     private LinkDetailFragment detailFragment;
 
+    private boolean mIsTablet = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

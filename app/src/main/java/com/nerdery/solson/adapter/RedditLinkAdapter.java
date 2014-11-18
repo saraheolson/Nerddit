@@ -83,8 +83,11 @@ public class RedditLinkAdapter extends BaseAdapter {
 
         linksViewHolder.setTitleText(link.getTitle());
         linksViewHolder.setCommentsText(link.getNumComments() + " comments");
-        linksViewHolder.setPostedText("Posted on " + mDateTimeFormatter.print(link.getCreatedUtc()) + " by " + link.getAuthor());
-        linksViewHolder.setScoreText("Score: " + link.getScore());
+
+        String postedResources = mContext.getString(R.string.link_list_posted_info);
+        String postedInfo = String.format(postedResources, mDateTimeFormatter.print(link.getCreatedUtc()), link.getAuthor());
+        linksViewHolder.setPostedText(postedInfo);
+        linksViewHolder.setScoreText(new Integer(link.getScore()).toString());
 
         /*
          * Load the image with Picasso.

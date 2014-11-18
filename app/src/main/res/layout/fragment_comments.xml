@@ -1,0 +1,21 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.nerdery.solson.fragment.CommentsFragment">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/title_fragment_comments"
+            android:padding="@dimen/default_cell_item_padding"/>
+
+    <ListView
+            android:id="@+id/comment_list_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#afafaf"
+            android:dividerHeight="1dp"
+            android:layout_margin="3dp"/>
+
+</FrameLayout>

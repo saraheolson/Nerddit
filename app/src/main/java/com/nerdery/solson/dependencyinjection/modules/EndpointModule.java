@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import com.nerdery.solson.Constants;
-import com.nerdery.solson.api.HotLinksEndpoint;
+import com.nerdery.solson.api.RedditEndpoint;
 import com.nerdery.solson.api.reddit.DateTimeDeserializer;
 import com.nerdery.solson.api.reddit.RedditObjectDeserializer;
 import com.nerdery.solson.model.RedditObject;
@@ -27,13 +27,13 @@ public class EndpointModule {
 
     @Provides
     @Singleton
-    HotLinksEndpoint provideHotLinksEndpoint() {
+    RedditEndpoint provideHotLinksEndpoint() {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(RedditObject.class, new RedditObjectDeserializer())
                 .registerTypeAdapter(DateTime.class, new DateTimeDeserializer())
                 .create();
         return new RestAdapter.Builder()
                 .setConverter(new GsonConverter(gson))
-                .setEndpoint(Constants.ENDPOINT_URL).build().create(HotLinksEndpoint.class);
+                .setEndpoint(Constants.ENDPOINT_URL).build().create(RedditEndpoint.class);
     }
 }

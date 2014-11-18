@@ -4,7 +4,7 @@ import com.nerdery.solson.R;
 import com.nerdery.solson.activity.BaseActivity;
 import com.nerdery.solson.activity.MasterDetailController;
 import com.nerdery.solson.adapter.RedditLinkAdapter;
-import com.nerdery.solson.api.HotLinksEndpoint;
+import com.nerdery.solson.api.RedditEndpoint;
 import com.nerdery.solson.model.RedditLink;
 import com.nerdery.solson.model.RedditListing;
 import com.nerdery.solson.model.RedditObject;
@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.List;
@@ -44,7 +45,7 @@ public class LinkListFragment extends BaseFragment
     private static final int DEFAULT_CACHE_LIMIT = 60;
 
     @Inject
-    HotLinksEndpoint mHotLinksEndpoint;
+    RedditEndpoint mRedditEndpoint;
 
     @Inject
     RedditLinkRepository mRedditLinkRepository;
@@ -78,6 +79,18 @@ public class LinkListFragment extends BaseFragment
         mView = inflater.inflate(R.layout.fragment_link_list, container, false);
         ButterKnife.inject(this, mView);
 
+        //Add the Load More button
+        Button loadMoreButton = new Button(getActivity());
+        loadMoreButton.setText("Load More");
+        loadMoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Log.d("LinkListFragment","View next page");
+                getNext();
+            }
+        });
+        mTopicListView.addFooterView(loadMoreButton);
+
         retrieveData();
 
         return mView;
@@ -109,6 +122,13 @@ public class LinkListFragment extends BaseFragment
         mMasterDetailController.updateDetails(link);
     }
 
+    public void getNext() {
+        RedditLink link = mRedditLinkAdapter.getItem(24);
+        Log.d("LinkListFragemnt", "Next link title: " + link.getTitle());
+        mRedditEndpoint.getNextHot(link.getName(), this);
+        mProgressDialog.show();
+    }
+
     public void retrieveData() {
 
         if (isConnected()) {
@@ -129,7 +149,7 @@ public class LinkListFragment extends BaseFragment
      */
     public void retrieveRedditData() {
         //get the hot links data from Reddit
-        mHotLinksEndpoint.getHot(this);
+        mRedditEndpoint.getHot(this);
         mProgressDialog.show();
     }
 

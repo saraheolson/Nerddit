@@ -18,4 +18,11 @@
     <string name="title_activity_link_detail">LinkDetailActivity</string>
     <string name="hello_world">Hello world!</string>
 
+    <!-- List item strings -->
+    <string name="link_list_posted_info">Posted on %1$s by %2$s</string>
+
+    <string name="title_activity_comments">CommentsActivity</string>
+
+    <string name="title_fragment_comments">Comments</string>
+
 </resources>

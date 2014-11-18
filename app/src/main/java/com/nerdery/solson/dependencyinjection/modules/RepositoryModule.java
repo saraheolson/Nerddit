@@ -6,7 +6,9 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
 import com.nerdery.solson.data.DatabaseHelper;
 import com.nerdery.solson.dependencyinjection.annotations.ForApplication;
+import com.nerdery.solson.model.RedditComment;
 import com.nerdery.solson.model.RedditLink;
+import com.nerdery.solson.repository.RedditCommentRepository;
 import com.nerdery.solson.repository.RedditLinkRepository;
 
 import android.content.Context;
@@ -39,6 +41,18 @@ public class RepositoryModule {
         try {
             Dao<RedditLink, Long> linkDao = DaoManager.createDao(connectionSource, RedditLink.class);
             return new RedditLinkRepository(linkDao);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Provides
+    @Singleton
+    RedditCommentRepository providesCommentRepository(DatabaseHelper databaseHelper) {
+        ConnectionSource connectionSource = new AndroidConnectionSource(databaseHelper);
+        try {
+            Dao<RedditComment, String> commentDao = DaoManager.createDao(connectionSource, RedditComment.class);
+            return new RedditCommentRepository(commentDao);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

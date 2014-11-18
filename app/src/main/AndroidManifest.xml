@@ -29,6 +29,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nerdery.solson.activity.HotLinksActivity" />
         </activity>
+        <activity
+            android:name="com.nerdery.solson.activity.CommentsActivity"
+            android:label="@string/title_activity_comments"
+            android:parentActivityName="com.nerdery.solson.activity.LinkDetailActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nerdery.solson.activity.LinkDetailActivity" />
+        </activity>
     </application>
 
 </manifest>

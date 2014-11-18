@@ -5,11 +5,13 @@ package com.nerdery.solson.dependencyinjection.modules;
  */
 
 import com.nerdery.solson.R;
+import com.nerdery.solson.activity.CommentsActivity;
 import com.nerdery.solson.activity.LinkDetailActivity;
 import com.nerdery.solson.adapter.RedditLinkAdapter;
 import com.nerdery.solson.activity.HotLinksActivity;
 import com.nerdery.solson.dependencyinjection.annotations.ForActivity;
 import com.nerdery.solson.activity.BaseActivity;
+import com.nerdery.solson.fragment.CommentsFragment;
 import com.nerdery.solson.fragment.EmptyListFragment;
 import com.nerdery.solson.fragment.LinkDetailFragment;
 import com.nerdery.solson.fragment.LinkListFragment;
@@ -35,6 +37,8 @@ import dagger.Provides;
                 EmptyListFragment.class,
                 RedditLinkAdapter.class,
                 LinkDetailActivity.class,
+                CommentsActivity.class,
+                CommentsFragment.class,
         },
         includes = {
                 EndpointModule.class,
