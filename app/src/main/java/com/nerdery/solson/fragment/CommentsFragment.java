@@ -3,7 +3,6 @@ package com.nerdery.solson.fragment;
 
 import com.nerdery.solson.R;
 import com.nerdery.solson.adapter.RedditCommentAdapter;
-import com.nerdery.solson.api.RedditEndpoint;
 import com.nerdery.solson.model.RedditComment;
 import com.nerdery.solson.model.RedditListing;
 import com.nerdery.solson.model.RedditObject;
@@ -11,7 +10,6 @@ import com.nerdery.solson.model.RedditResponse;
 import com.nerdery.solson.repository.RedditCommentRepository;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -80,12 +78,14 @@ public class CommentsFragment extends BaseFragment implements
         mView = inflater.inflate(R.layout.fragment_comments, container, false);
         ButterKnife.inject(this, mView);
 
-        Log.d("Comments", "LinkID: " + mLinkId);
-        retrieveData();
-
         return mView;
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState){
+        Log.d("Comments", "LinkID: " + mLinkId);
+        retrieveData();
+    }
 
     /**
      * Retrieves data from the Reddit API.

@@ -32,7 +32,14 @@ public abstract class BaseActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Set up object graph before calling super.onCreate so we guarantee mObjectGraph is non-null before child fragments' onAttach is called
+        injectSelf();
+
         super.onCreate(savedInstanceState);
+    }
+
+    private void injectSelf() {
 
         // Inject objects into the object graph at the activity level, this is for
         // objects that need values that aren't available until the activity is created.

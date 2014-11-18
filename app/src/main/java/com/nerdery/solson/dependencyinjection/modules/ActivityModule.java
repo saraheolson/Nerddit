@@ -7,8 +7,10 @@ package com.nerdery.solson.dependencyinjection.modules;
 import com.nerdery.solson.R;
 import com.nerdery.solson.activity.CommentsActivity;
 import com.nerdery.solson.activity.LinkDetailActivity;
+import com.nerdery.solson.adapter.RedditCommentAdapter;
 import com.nerdery.solson.adapter.RedditLinkAdapter;
 import com.nerdery.solson.activity.HotLinksActivity;
+import com.nerdery.solson.api.RedditEndpoint;
 import com.nerdery.solson.dependencyinjection.annotations.ForActivity;
 import com.nerdery.solson.activity.BaseActivity;
 import com.nerdery.solson.fragment.CommentsFragment;
@@ -32,13 +34,15 @@ import dagger.Provides;
 @Module(
         injects = {
                 HotLinksActivity.class,
-                LinkDetailFragment.class,
-                LinkListFragment.class,
-                EmptyListFragment.class,
-                RedditLinkAdapter.class,
                 LinkDetailActivity.class,
                 CommentsActivity.class,
+                LinkListFragment.class,
+                LinkDetailFragment.class,
                 CommentsFragment.class,
+                EmptyListFragment.class,
+                RedditLinkAdapter.class,
+                RedditCommentAdapter.class,
+                RedditEndpoint.class,
         },
         includes = {
                 EndpointModule.class,

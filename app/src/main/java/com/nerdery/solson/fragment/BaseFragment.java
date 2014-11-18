@@ -83,5 +83,4 @@ public abstract class BaseFragment extends Fragment {
 
         return networkInfo != null && networkInfo.isConnectedOrConnecting();
     }
-
 }
