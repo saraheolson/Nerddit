@@ -1,13 +1,17 @@
 package com.nerdery.solson.fragment;
 
 
+import com.nerdery.solson.api.RedditEndpoint;
 import com.nerdery.solson.fragment.dialog.NoConnectionDialogFragment;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v4.app.Fragment;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
@@ -18,6 +22,12 @@ public abstract class BaseFragment extends Fragment {
 
     private NoConnectionDialogFragment mNoConnectionDialog;
     private Activity mActivity;
+
+    @Inject
+    RedditEndpoint mRedditEndpoint;
+
+    @Inject
+    ProgressDialog mProgressDialog;
 
     @Override
     public void onDestroyView() {

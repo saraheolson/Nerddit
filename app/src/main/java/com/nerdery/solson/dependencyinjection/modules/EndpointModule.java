@@ -27,7 +27,7 @@ public class EndpointModule {
 
     @Provides
     @Singleton
-    RedditEndpoint provideHotLinksEndpoint() {
+    RedditEndpoint provideRedditEndpoint() {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(RedditObject.class, new RedditObjectDeserializer())
                 .registerTypeAdapter(DateTime.class, new DateTimeDeserializer())

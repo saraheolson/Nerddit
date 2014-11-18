@@ -34,12 +34,6 @@ public class CommentsFragment extends BaseFragment implements
     public static final String ARG_REDDIT_LINK_ID = "com.nerdery.solson.RedditLinkID";
 
     @Inject
-    RedditEndpoint mRedditEndpoint;
-
-    @Inject
-    ProgressDialog mProgressDialog;
-
-    @Inject
     RedditCommentAdapter mCommentAdapter;
 
     @Inject
@@ -97,11 +91,20 @@ public class CommentsFragment extends BaseFragment implements
      * Retrieves data from the Reddit API.
      */
     public void retrieveData() {
-        //get the hot links data from Reddit
-        if (mLinkId != null) {
-            mRedditEndpoint.getComments(mLinkId, this);
-            mProgressDialog.show();
+        if (isConnected()) {
+
+            if (mLinkId != null) {
+                mRedditEndpoint.getComments(mLinkId, this);
+                //mRedditEndpoint.getHot(this);
+                mProgressDialog.show();
+            }
+        } else {
+            retrieveCachedData();
         }
+    }
+
+    private void retrieveCachedData() {
+        Log.d("CommentsFragment","Retrieve cached data");
     }
 
     @Override

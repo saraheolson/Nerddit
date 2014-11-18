@@ -1,33 +1,22 @@
 package com.nerdery.solson.activity;
 
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-
 import com.nerdery.solson.R;
-import com.nerdery.solson.fragment.LinkDetailFragment;
-import com.nerdery.solson.model.RedditLink;
+import com.nerdery.solson.fragment.CommentsFragment;
 
-public class CommentsActivity extends ActionBarActivity {
+import android.os.Bundle;
+
+public class CommentsActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
+
+        //pass the RedditLink ID on to the fragment
+        if (savedInstanceState == null) {
+            String linkId = getIntent().getStringExtra(CommentsFragment.ARG_REDDIT_LINK_ID);
+            CommentsFragment commentsFragment = CommentsFragment.newInstance(linkId);
+            getSupportFragmentManager().beginTransaction().add(R.id.link_comments_container, commentsFragment).commit();
+        }
     }
-
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_link_detail);
-//
-//        //pass the RedditLink object on to the fragment
-//        if (savedInstanceState == null) {
-//            RedditLink link = (RedditLink) getIntent().getSerializableExtra(LinkDetailFragment.ARG_REDDIT_LINK);
-//            detailFragment = LinkDetailFragment.newInstance(link);
-//            getSupportFragmentManager().beginTransaction().add(R.id.link_detail_container, detailFragment).commit();
-//        }
-//    }
-
 }

@@ -45,16 +45,10 @@ public class LinkListFragment extends BaseFragment
     private static final int DEFAULT_CACHE_LIMIT = 60;
 
     @Inject
-    RedditEndpoint mRedditEndpoint;
-
-    @Inject
     RedditLinkRepository mRedditLinkRepository;
 
     @Inject
     RedditLinkAdapter mRedditLinkAdapter;
-
-    @Inject
-    ProgressDialog mProgressDialog;
 
     @InjectView(R.id.topic_list_list_view)
     ListView mTopicListView;
