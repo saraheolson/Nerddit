@@ -109,7 +109,6 @@ public class LinkDetailFragment extends BaseFragment {
         titleView.setClickable(true);
         titleView.setMovementMethod(LinkMovementMethod.getInstance());
         mLinksViewHolder.setTitleText(Html.fromHtml("<a href=\"http://www.reddit.com" + mLink.getPermalink() + "\">" + mLink.getTitle() + "<\\a>"));
-        //Linkify.addLinks(mLinksViewHolder.getTitleView(), Linkify.WEB_URLS);
 
         //Populate the other text views
         mLinksViewHolder.setCommentsText(String.format(numComments, mLink.getNumComments()));
