@@ -3,11 +3,10 @@ package com.nerdery.solson.activity;
 import com.nerdery.solson.model.RedditLink;
 
 /**
- * @author solson
+ * Controls viewing details for a selected RedditLink object.
  */
-public interface MasterDetailController {
+public interface LinkDetailsController {
 
     public void updateDetails(RedditLink link);
 
-    public void setActionBarTitle(String title);
 }

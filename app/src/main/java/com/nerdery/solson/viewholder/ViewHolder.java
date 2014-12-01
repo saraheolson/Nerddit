@@ -1,9 +1,11 @@
-package com.nerdery.solson.view;
+package com.nerdery.solson.viewholder;
 
 import android.view.View;
 
 /**
- * Created by kwatson on 7/21/2014.
+ * Base class for viewholders.
+ *
+ * @author solson
  */
 public interface ViewHolder {
 

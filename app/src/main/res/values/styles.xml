@@ -14,13 +14,21 @@
         <item name="android:layout_margin">2dp</item>
     </style>
 
-    <style name="LinkScore">
+    <style name="LinkScoreCentered">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FF362F</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="LinkScoreLeft">
         <item name="android:layout_width">75dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">#AA0011</item>
-        <item name="android:layout_margin">2dp</item>
-        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FF362F</item>
+        <item name="android:gravity">left</item>
     </style>
 
 </resources>

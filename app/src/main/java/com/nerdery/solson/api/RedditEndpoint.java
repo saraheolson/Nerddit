@@ -3,6 +3,8 @@ package com.nerdery.solson.api;
 import com.nerdery.solson.model.RedditListing;
 import com.nerdery.solson.model.RedditResponse;
 
+import java.util.List;
+
 import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;
@@ -37,10 +39,24 @@ public interface RedditEndpoint {
     /**
      * Returns the comments for the selected link.
      *
-     * @param linkId The ID of the link for the comments.
+     * @param linkId   The ID of the link for the comments.
      * @param callback The object receiving the callback response.
      */
-    @GET("/comments/{id}.json")
+    @GET("/comments/{id}.json?limit=25")
     public void getComments(@Path("id") String linkId,
-            Callback<RedditResponse<RedditListing>> callback);
+            Callback<List<RedditResponse<RedditListing>>> callback);
+
+    /**
+     * Returns the next page of comments for the selected link. NOTE: This API call is not working.
+     * It's a terrible API. You've been warned.
+     *
+     * @param linkId   The ID of the link for the comments.
+     * @param children A list of IDs. Still not sure how to determine which IDs to pass in.
+     * @param callback The object receiving the callback response.
+     */
+    @GET("/morechildren?api_type=json&sort=new")
+    public void getNextComments(@Query("link_id") String linkId,
+            @Query("children") List<String> children,
+            Callback<List<RedditResponse<RedditListing>>> callback);
+
 }

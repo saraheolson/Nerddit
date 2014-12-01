@@ -12,30 +12,34 @@
     <fragment android:id="@+id/fragment_link_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1.5"
+        android:layout_weight="5"
         android:name="com.nerdery.solson.fragment.LinkListFragment"
         tools:layout="@layout/fragment_link_list"/>
 
-    <ScrollView
-            android:id="@+id/activity_detail_twopane_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="5"
+                  android:orientation="vertical">
 
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="match_parent"
-                      android:orientation="vertical">
-            <FrameLayout
-                android:id="@+id/frame_link_detail"
+        <ScrollView
+                android:id="@+id/activity_detail_twopane_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="fill_parent">
 
-            <FrameLayout
-                    android:id="@+id/frame_link_comments"
+                <FrameLayout
+                    android:id="@+id/frame_link_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-        </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:background="#FFFDF3"/>
+        </ScrollView>
 
-    </ScrollView>
+        <FrameLayout
+                android:id="@+id/frame_link_comments"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:background="#E5E4DA"
+                tools:ignore="MergeRootFrame"/>
+
+    </LinearLayout>
 
 </LinearLayout>

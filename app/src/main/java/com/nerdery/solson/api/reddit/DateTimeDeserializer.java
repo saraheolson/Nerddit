@@ -9,9 +9,15 @@ import org.joda.time.DateTime;
 
 import java.lang.reflect.Type;
 
+/**
+ * To save time implenting the Reddit API (which has TERRIBLE documentation), I took this code from:
+ * https://github.com/jacobtabak/droidcon/
+ */
 public class DateTimeDeserializer implements JsonDeserializer<DateTime> {
-  @Override
-  public DateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-    return new DateTime(json.getAsLong() * 1000);
-  }
+
+    @Override
+    public DateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+            throws JsonParseException {
+        return new DateTime(json.getAsLong() * 1000);
+    }
 }

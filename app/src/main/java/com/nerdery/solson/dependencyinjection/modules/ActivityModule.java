@@ -14,7 +14,7 @@ import com.nerdery.solson.api.RedditEndpoint;
 import com.nerdery.solson.dependencyinjection.annotations.ForActivity;
 import com.nerdery.solson.activity.BaseActivity;
 import com.nerdery.solson.fragment.CommentsFragment;
-import com.nerdery.solson.fragment.EmptyListFragment;
+import com.nerdery.solson.fragment.EmptyDetailsFragment;
 import com.nerdery.solson.fragment.LinkDetailFragment;
 import com.nerdery.solson.fragment.LinkListFragment;
 
@@ -39,7 +39,7 @@ import dagger.Provides;
                 LinkListFragment.class,
                 LinkDetailFragment.class,
                 CommentsFragment.class,
-                EmptyListFragment.class,
+                EmptyDetailsFragment.class,
                 RedditLinkAdapter.class,
                 RedditCommentAdapter.class,
                 RedditEndpoint.class,

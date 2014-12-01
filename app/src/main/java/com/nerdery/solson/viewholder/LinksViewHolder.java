@@ -1,9 +1,10 @@
-package com.nerdery.solson.view;
+package com.nerdery.solson.viewholder;
 
 import com.nerdery.solson.R;
 import com.nerdery.solson.model.RedditListing;
 
 import android.graphics.drawable.Drawable;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,48 +16,84 @@ import butterknife.InjectView;
 import butterknife.Optional;
 
 /**
- * Created by solson on 11/11/14.
+ * Viewholder for links list.
+ *
+ * @author solson
  */
 public class LinksViewHolder implements ViewHolder {
 
+    /**
+     * Link title view.
+     */
     @InjectView(R.id.list_item_link_title)
     TextView mTitleView;
 
+    /**
+     * Link score view.
+     */
     @InjectView(R.id.list_item_link_score)
     TextView mScoreView;
 
+    /**
+     * Link date/time and author view.
+     */
     @InjectView(R.id.list_item_link_posted_info)
     TextView mPostedView;
 
+    /**
+     * Link number of comments view.
+     */
     @InjectView(R.id.list_item_link_comments)
     TextView mCommentsView;
 
+    /**
+     * Link image view.
+     */
     @InjectView(R.id.list_item_link_image)
     ImageView mImageView;
 
+    /**
+     * (Optional) Link URL view.
+     */
     @Optional
     @InjectView(R.id.list_item_link_url)
     TextView mUrlView;
 
+    /**
+     * The cell view.
+     */
     private View parentView;
+
+    /**
+     * The list of links.
+     */
     private List<RedditListing> mRedditListings;
 
-    public List<RedditListing> getListings() {
-        return mRedditListings;
-    }
-
-    public void setTopics(List<RedditListing> listings) {
-        this.mRedditListings = listings;
-    }
-
+    /**
+     * Binds the view to its parent.
+     *
+     * @param parentView The parent view.
+     */
     @Override
     public void bindView(View parentView) {
         ButterKnife.inject(this, parentView);
         this.parentView = parentView;
     }
 
+    public List<RedditListing> getListings() {
+        return mRedditListings;
+    }
+
+    public void setLinks(List<RedditListing> listings) {
+        this.mRedditListings = listings;
+    }
+
     public TextView getTitleView() {
         return mTitleView;
+    }
+
+    public void setTitleText(Spanned title) {
+        this.mTitleView.setText(title);
     }
 
     public void setTitleText(String title) {

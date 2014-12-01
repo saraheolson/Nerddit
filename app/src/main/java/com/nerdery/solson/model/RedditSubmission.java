@@ -5,8 +5,16 @@ import com.j256.ormlite.table.DatabaseTable;
 
 import org.joda.time.DateTime;
 
-@DatabaseTable(tableName="RedditLink")
-public class RedditSubmission extends RedditObject {
+import java.io.Serializable;
+
+/**
+ * Parent class to a link, which holds some important data that also needs to be saved to the db.
+ *
+ * To save time implenting the Reddit API (which has TERRIBLE documentation), I took this code from:
+ * https://github.com/jacobtabak/droidcon/
+ */
+@DatabaseTable(tableName = "RedditLink")
+public class RedditSubmission extends RedditObject implements Serializable {
 
     String banned_by;
 

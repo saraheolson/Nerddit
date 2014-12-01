@@ -8,17 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Data repository for links.
+ *
  * @author solson
  */
 public class RedditLinkRepository extends ObjectRepository {
 
-    private Dao<RedditLink, Long> mLinkDao;
+    private Dao<RedditLink, String> mLinkDao;
 
-    public RedditLinkRepository(Dao<RedditLink, Long> linkDao) {
+    public RedditLinkRepository(Dao<RedditLink, String> linkDao) {
         this.mLinkDao = linkDao;
     }
 
-    public RedditLink find(Long linkId) {
+    public RedditLink find(String linkId) {
         RedditLink link = new RedditLink();
         try {
             link = mLinkDao.queryForId(linkId);
@@ -48,6 +50,10 @@ public class RedditLinkRepository extends ObjectRepository {
             onSqlException(se);
         }
         return link;
+    }
+
+    public void removeAll() {
+        removeAll(findAll());
     }
 
     public void removeAll(List<RedditLink> linksToRemove) {

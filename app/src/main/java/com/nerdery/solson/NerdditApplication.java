@@ -28,7 +28,7 @@ public class NerdditApplication extends Application {
         super.onCreate();
 
         // Setup debugging for butterknife
-        ButterKnife.setDebug(BuildConfig.DEBUG);
+        //ButterKnife.setDebug(BuildConfig.DEBUG);
 
         // Create ability to get instance
         sInstance = this;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Nerddit" parent="@android:style/Theme.Holo.Light">
+    <style name="Theme.Nerddit" parent="@style/Theme.AppCompat.Light">
         <!-- Add custom styles here -->
     </style>
 

@@ -23,7 +23,8 @@ import dagger.Provides;
 /**
  * Module for all Database/ORMLite/SQLite providers
  *
- * @author Kenton Watson
+ * @author kwatson
+ * @author solson
  */
 @Module(complete = false, library = true)
 public class RepositoryModule {
@@ -39,7 +40,7 @@ public class RepositoryModule {
     RedditLinkRepository providesLinkRepository(DatabaseHelper databaseHelper) {
         ConnectionSource connectionSource = new AndroidConnectionSource(databaseHelper);
         try {
-            Dao<RedditLink, Long> linkDao = DaoManager.createDao(connectionSource, RedditLink.class);
+            Dao<RedditLink, String> linkDao = DaoManager.createDao(connectionSource, RedditLink.class);
             return new RedditLinkRepository(linkDao);
         } catch (SQLException e) {
             throw new RuntimeException(e);

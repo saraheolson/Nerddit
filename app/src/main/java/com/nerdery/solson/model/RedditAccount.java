@@ -1,64 +1,80 @@
 package com.nerdery.solson.model;
 
+/**
+ * To save time implenting the Reddit API (which has TERRIBLE documentation), I took this code from:
+ * https://github.com/jacobtabak/droidcon/
+ */
 public class RedditAccount extends RedditObject {
-  int comment_karma;
-  boolean has_mail;
-  boolean has_mod_mail;
-  boolean has_verified_email;
-  String id;
-  boolean is_friend;
-  boolean is_gold;
-  boolean is_mod;
-  int link_karma;
-  String modhash;
-  String name;
-  boolean over_18;
 
-  public int getCommentKarma() {
-    return comment_karma;
-  }
+    int comment_karma;
 
-  public boolean hasMail() {
-    return has_mail;
-  }
+    boolean has_mail;
 
-  public boolean hasModMail() {
-    return has_mod_mail;
-  }
+    boolean has_mod_mail;
 
-  public boolean hasVerifiedEmail() {
-    return has_verified_email;
-  }
+    boolean has_verified_email;
 
-  public String getId() {
-    return id;
-  }
+    String id;
 
-  public boolean isFriend() {
-    return is_friend;
-  }
+    boolean is_friend;
 
-  public boolean isGold() {
-    return is_gold;
-  }
+    boolean is_gold;
 
-  public boolean isMod() {
-    return is_mod;
-  }
+    boolean is_mod;
 
-  public int getLinkKarma() {
-    return link_karma;
-  }
+    int link_karma;
 
-  public String getModhash() {
-    return modhash;
-  }
+    String modhash;
 
-  public String getName() {
-    return name;
-  }
+    String name;
 
-  public boolean isOver18() {
-    return over_18;
-  }
+    boolean over_18;
+
+    public int getCommentKarma() {
+        return comment_karma;
+    }
+
+    public boolean hasMail() {
+        return has_mail;
+    }
+
+    public boolean hasModMail() {
+        return has_mod_mail;
+    }
+
+    public boolean hasVerifiedEmail() {
+        return has_verified_email;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public boolean isFriend() {
+        return is_friend;
+    }
+
+    public boolean isGold() {
+        return is_gold;
+    }
+
+    public boolean isMod() {
+        return is_mod;
+    }
+
+    public int getLinkKarma() {
+        return link_karma;
+    }
+
+    public String getModhash() {
+        return modhash;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isOver18() {
+        return over_18;
+    }
 }

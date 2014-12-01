@@ -1,34 +1,34 @@
 package com.nerdery.solson.activity;
 
 import com.nerdery.solson.NerdditApplication;
-import com.nerdery.solson.adapter.RedditLinkAdapter;
 import com.nerdery.solson.dependencyinjection.modules.ActivityModule;
-import com.nerdery.solson.fragment.dialog.NoConnectionDialogFragment;
 
 import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 
 import java.util.Arrays;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import dagger.ObjectGraph;
 
 /**
- * @author Andrew
+ * @author andrew
+ * @author solson
  */
 
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends ActionBarActivity {
 
-    private NoConnectionDialogFragment mNoConnectionDialog;
     private Activity mActivity;
+
     private ObjectGraph mActivityGraph;
+
     private boolean finishActivity;
+
+    private boolean mIsTablet = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,23 +77,9 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     /**
-     * Shows a dialog notifying the user that they lack an internet connection. The Dialog will be
-     * created if it has not been shown before.
-     */
-    protected void showDialog() {
-        if (mNoConnectionDialog == null) {
-            mNoConnectionDialog = new NoConnectionDialogFragment();
-        }
-        if (!mNoConnectionDialog.isVisible()) {
-            mNoConnectionDialog.show(getSupportFragmentManager(), "no-connection");
-        }
-    }
-
-    /**
      * Checks to see if user has a working internet connection.
      *
-     * @return
-     *          True if user is connected.
+     * @return True if user is connected.
      */
     protected boolean isConnected() {
         ConnectivityManager cm =
@@ -105,5 +91,23 @@ public abstract class BaseActivity extends FragmentActivity {
 
     protected void setFinishActivity(boolean finishActivity) {
         this.finishActivity = finishActivity;
+    }
+
+    /**
+     * Returns true if the app is running on a tablet.
+     *
+     * @return True if on tablet.
+     */
+    public boolean isTablet() {
+        return mIsTablet;
+    }
+
+    /**
+     * Sets the tablet property.
+     *
+     * @param isTablet boolean
+     */
+    public void setTablet(boolean isTablet) {
+        mIsTablet = isTablet;
     }
 }

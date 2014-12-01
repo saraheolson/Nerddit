@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Nerddit" >
         <activity
             android:name="com.nerdery.solson.activity.HotLinksActivity"
-            android:label="@string/title_activity_nerddit" >
+            android:label="@string/activity_hotlinks_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,7 @@
         </activity>
         <activity
             android:name="com.nerdery.solson.activity.LinkDetailActivity"
-            android:label="@string/title_activity_link_detail"
+            android:label="@string/activity_details_title"
             android:parentActivityName="com.nerdery.solson.activity.HotLinksActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -31,7 +31,7 @@
         </activity>
         <activity
             android:name="com.nerdery.solson.activity.CommentsActivity"
-            android:label="@string/title_activity_comments"
+            android:label="@string/activity_commments_title"
             android:parentActivityName="com.nerdery.solson.activity.LinkDetailActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

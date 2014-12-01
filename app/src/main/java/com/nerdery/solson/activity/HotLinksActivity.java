@@ -2,8 +2,8 @@ package com.nerdery.solson.activity;
 
 import com.nerdery.solson.R;
 import com.nerdery.solson.fragment.CommentsFragment;
+import com.nerdery.solson.fragment.EmptyDetailsFragment;
 import com.nerdery.solson.model.RedditLink;
-import com.nerdery.solson.fragment.EmptyListFragment;
 import com.nerdery.solson.fragment.LinkDetailFragment;
 import com.nerdery.solson.fragment.LinkListFragment;
 
@@ -18,49 +18,71 @@ import android.widget.FrameLayout;
 
 import butterknife.InjectView;
 
-public class HotLinksActivity extends BaseActivity implements MasterDetailController {
+public class HotLinksActivity extends BaseActivity implements LinkDetailsController, LinkCommentsController {
 
+    /** The Details frame */
     @InjectView(R.id.frame_link_detail)
     FrameLayout mDetailFrame;
 
+    /** The fragments used in tablet mode */
     private LinkDetailFragment mDetailFragment;
-    private EmptyListFragment mEmptyListFragment;
+    private EmptyDetailsFragment mEmptyDetailsFragment;
     private CommentsFragment mCommentsFragment;
-
-    private boolean mIsTablet = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_link_list);
 
-        super.setTitle("Nerddit Hot Topics");
+        // Set the title
+        super.setTitle(R.string.activity_hotlinks_title);
 
+        // If the detail view appears, we're on a tablet
         if (findViewById(R.id.frame_link_detail) != null) {
-            Log.d("HotLinksActivity", "Is tablet");
-            mIsTablet = true;
-            mEmptyListFragment = EmptyListFragment.newInstance();
-            swapDetailView(mEmptyListFragment);
 
-            mCommentsFragment = new CommentsFragment();
-            swapCommentsView(mCommentsFragment);
+            // Set the tablet property to true
+            setTablet(true);
+
+            // Create the initial details fragment to display next to the link list
+            mEmptyDetailsFragment = EmptyDetailsFragment.newInstance();
+            swapDetailView(mEmptyDetailsFragment);
+
         } else {
-            Log.d("HotLinksActivity", "Is not tablet");
+
+            // Set the tablet property to false
+            setTablet(false);
         }
     }
 
+    /**
+     * On tablets, swap out the detail view with the provided fragment.
+     *
+     * @param fragment The details fragment.
+     */
     private void swapDetailView(Fragment fragment) {
         FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.replace(R.id.frame_link_detail, fragment);
         t.commit();
     }
 
+    /**
+     * On tablets, swap out the comments view with the provided fragment.
+     *
+     * @param fragment The comments fragment.
+     */
     private void swapCommentsView(Fragment fragment) {
         FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.replace(R.id.frame_link_comments, fragment);
         t.commit();
     }
 
+    /**
+     * Add the Nerddit menu to the app.
+     *
+     * @param menu The menu object.
+     *
+     * @return boolean
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -68,42 +90,49 @@ public class HotLinksActivity extends BaseActivity implements MasterDetailContro
         return true;
     }
 
+    /**
+     * Handle the action bar menu items functionality.
+     *
+     * @param item The selected menu item.
+     *
+     * @return boolean
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
 
-            //TODO remove this
-            return true;
-        } else if (id == R.id.menu_item_refresh) {
+        if (item.getItemId() == R.id.menu_item_refresh) {
 
-            /** Refresh the list of links. **/
+            // Refresh item selected - refresh the list of links.
             LinkListFragment linkListFragment = (LinkListFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.fragment_link_list);
-            linkListFragment.retrieveData();
+            linkListFragment.refreshLinks();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Displays the details of a selected link.
+     *
+     * @param link The selected RedditLink object.
+     */
     @Override
     public void updateDetails(RedditLink link) {
 
-        if (mIsTablet) {
+        if (isTablet()) {
 
-            // Update the details
+            // Update the details fragment
             mDetailFragment = LinkDetailFragment.newInstance(link);
             swapDetailView(mDetailFragment);
 
-            //Update the comments
-            mCommentsFragment = CommentsFragment.newInstance(link.getId());
+            //Update the comments fragment
+            mCommentsFragment = CommentsFragment.newInstance(link);
             swapCommentsView(mCommentsFragment);
 
         } else {
+
+            // On phones, navigate to the LinkDetails activity instead
             Intent detailIntent = new Intent(this, LinkDetailActivity.class);
             detailIntent.putExtra(LinkDetailFragment.ARG_REDDIT_LINK, link);
             startActivity(detailIntent);
@@ -111,7 +140,7 @@ public class HotLinksActivity extends BaseActivity implements MasterDetailContro
     }
 
     @Override
-    public void setActionBarTitle(String title) {
-        super.setTitle(title);
+    public void updateComments(RedditLink link) {
+        //not used in this activity
     }
 }

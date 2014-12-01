@@ -20,6 +20,7 @@ import retrofit.converter.GsonConverter;
 
 /**
  * Module for Retrofit API endpoints.
+ *
  * @author solson
  */
 @Module(complete = false, library = true)

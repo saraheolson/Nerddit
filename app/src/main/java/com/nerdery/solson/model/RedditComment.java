@@ -1,48 +1,65 @@
 package com.nerdery.solson.model;
 
+import com.j256.ormlite.field.DatabaseField;
+
+/**
+ * To save time implenting the Reddit API (which has TERRIBLE documentation), I took this code from:
+ * https://github.com/jacobtabak/droidcon/
+ */
 public class RedditComment extends RedditSubmission {
-  RedditObject replies;
-  String subreddit_id;
-  String parent_id;
-  int controversiality;
-  String body;
-  String body_html;
-  String link_id;
-  int depth;
 
-  public RedditObject getReplies() {
-    return replies;
-  }
+    RedditObject replies;
 
-  public String getSubredditId() {
-    return subreddit_id;
-  }
+    String subreddit_id;
 
-  public String getParentId() {
-    return parent_id;
-  }
+    String parent_id;
 
-  public int getControversiality() {
-    return controversiality;
-  }
+    int controversiality;
 
-  public String getBody() {
-    return body;
-  }
+    @DatabaseField
+    String body;
 
-  public String getBodyHtml() {
-    return body_html;
-  }
+    String body_html;
 
-  public String getLinkId() {
-    return link_id;
-  }
+    @DatabaseField
+    String link_id;
 
-  public int getDepth() {
-    return depth;
-  }
+    @DatabaseField
+    int depth;
 
-  public void setDepth(int depth) {
-    this.depth = depth;
-  }
+    public RedditObject getReplies() {
+        return replies;
+    }
+
+    public String getSubredditId() {
+        return subreddit_id;
+    }
+
+    public String getParentId() {
+        return parent_id;
+    }
+
+    public int getControversiality() {
+        return controversiality;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public String getBodyHtml() {
+        return body_html;
+    }
+
+    public String getLinkId() {
+        return link_id;
+    }
+
+    public int getDepth() {
+        return depth;
+    }
+
+    public void setDepth(int depth) {
+        this.depth = depth;
+    }
 }

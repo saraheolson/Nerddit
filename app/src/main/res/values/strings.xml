@@ -2,27 +2,38 @@
 <resources>
 
     <string name="app_name">Nerddit</string>
-    <string name="menu_settings">Settings</string>
-    <string name="title_activity_nerddit">NerdditActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="fragment_topic_list_title">Hot Topics</string>
 
-    <!-- menus -->
+    <!-- activity titles -->
+    <string name="activity_hotlinks_title">Hot Links</string>
+    <string name="activity_details_title">Details</string>
+    <string name="activity_commments_title">Comments</string>
+
+    <!-- menu items -->
     <string name="menu_item_refresh_title">Refresh</string>
 
-    <!-- No Connection Dialog -->
+    <!-- Link details strings -->
+    <string name="link_list_num_comments">%1$d comments</string>
+    <string name="link_list_posted_info">Posted on %1$s by %2$s</string>
+
+    <!-- Fragment titles -->
+    <string name="title_fragment_comments">Comments</string>
+    <string name="fragment_topic_list_title">Hot Links</string>
+
+    <!-- buttons -->
+    <string name="button_load_more_title">Load More</string>
+    <string name="button_view_comments_title">View Comments</string>
+
+    <!-- API messages -->
+    <string name="api_comments_failure">Comments could not be retrieved at this time. Please wait and try again.</string>
+    <string name="api_links_failure">Links could not be retrieved at this time. Please wait and try again.</string>
+
+    <!-- Dialogs -->
+    <string name="progress_dialog_message">Loading items...</string>
     <string name="no_connection_dialog_title">No Connection Detected</string>
     <string name="no_connection_dialog_message">We have detected that you have no connection to the internet. Please make sure you have a reliable connection, and then try again.</string>
     <string name="alert_dialog_ok">OK</string>
-    <string name="progress_dialog_message">Loading items...</string>
-    <string name="title_activity_link_detail">LinkDetailActivity</string>
-    <string name="hello_world">Hello world!</string>
 
-    <!-- List item strings -->
-    <string name="link_list_posted_info">Posted on %1$s by %2$s</string>
-
-    <string name="title_activity_comments">CommentsActivity</string>
-
-    <string name="title_fragment_comments">Comments</string>
+    <!-- Empty -->
+    <string name="title_empty_details">Please select a link.</string>
 
 </resources>

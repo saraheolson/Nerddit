@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Data repository for comments.
+ *
  * @author solson
  */
 public class RedditCommentRepository extends ObjectRepository {
@@ -19,20 +21,20 @@ public class RedditCommentRepository extends ObjectRepository {
         this.mCommentDao = commentDao;
     }
 
-    public RedditComment find(String linkId) {
+    public RedditComment find(String commentId) {
         RedditComment comment = new RedditComment();
         try {
-            comment = mCommentDao.queryForId(linkId);
+            comment = mCommentDao.queryForId(commentId);
         } catch (SQLException se) {
             onSqlException(se);
         }
         return comment;
     }
 
-    public List<RedditComment> findAll() {
+    public List<RedditComment> findAll( String linkId ) {
         List<RedditComment> comments = new ArrayList<RedditComment>();
         try {
-            comments = mCommentDao.queryForAll();
+            comments = mCommentDao.queryForEq("link_id", linkId);
         } catch (SQLException se) {
             onSqlException(se);
         }

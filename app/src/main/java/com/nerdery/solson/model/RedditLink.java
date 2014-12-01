@@ -7,7 +7,13 @@ import org.joda.time.DateTime;
 
 import java.io.Serializable;
 
-@DatabaseTable(tableName="RedditLink")
+/**
+ * RedditLink object holds information about a single link from the Hot topic list.
+ *
+ * To save time implenting the Reddit API (which has TERRIBLE documentation), I took this code from:
+ * https://github.com/jacobtabak/droidcon/
+ */
+@DatabaseTable(tableName = "RedditLink")
 public class RedditLink extends RedditSubmission implements Serializable {
 
     @DatabaseField

@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * @author saraheolson
+ * This fragment is displayed in the details area on tablets before a link has been selected.
+ *
+ * @author solson
  */
-public class EmptyListFragment extends BaseFragment {
+public class EmptyDetailsFragment extends BaseFragment {
 
     private View mView;
 
@@ -20,5 +22,5 @@ public class EmptyListFragment extends BaseFragment {
         return mView;
     }
 
-    public static EmptyListFragment newInstance() { return new EmptyListFragment(); }
+    public static EmptyDetailsFragment newInstance() { return new EmptyDetailsFragment(); }
 }
